@@ -1,13 +1,192 @@
 body {
-    font-family: sans-serif;
-    text-align: center;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  box-sizing: border-box;
+  height: 770px;
+  overflow: hidden;
+}
+
+/* Styles for the Categories Header */
+.categories-header {
+  text-align: center;
+  margin-bottom: 0px;
+  color: #000000; /* Change this color as needed */
+  font-size: 20px; /* Optional: Adjust font size */
+  font-weight: bold; /* Optional: Add bold text */
+}
+
+#searchBar {
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 90%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 25px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#searchBar:focus {
+  border: 2px solid #007BFF;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+#searchBar::placeholder {
+  color: #999;
+  font-style: italic;
+}
+.group-button{
+  width: 120px;
+}
+
+.category-button{
+  width: 120px;
+}
+
+
+.item-button{
+  width: 180px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.sidebar {
+  flex: 1;
+  padding: 10px;
+  margin: 0 10px;
+  background-color: #f4f4f4;
+  border-radius: 5px;
+}
+
+.content {
+  flex: 2;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h3, .content h3 {
+  text-align: center;
+}
+
+#cart-container {
+  flex: 5;
+  padding: 10px;
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+#searchBar {
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+
+#totalAmount{
+position: sticky;
+bottom: 10px;
+text-align: center;
+background-color: #81a49b;
+padding: 10px;
+font-weight: bold;
+border-radius: 5px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#items{
+  overflow-y: auto;
+}
+
+#printButton {
+  position: sticky;
+  bottom: 10px;
+  background-color: #81a49b;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
-  
-  button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #78d27b;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
+
+#searchInput {
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+button {
+  padding: 8px 16px;
+  margin: 5px;
+  border: none;
+  background-color: #28a745;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cart-table th, .cart-table td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.cart-table th {
+  background-color: #f4f4f4;
+}
+
+.cart-item-button {
+    background-color: #1bda47; /* Green background */
+    color: rgb(171, 37, 37);              /* White text */
+    border-radius: 5px;        /* Rounded corners */
+    padding: 5px 10px;         /* Padding for the button */
+    border: none;              /* Remove default border */
+    cursor: pointer;          /* Pointer cursor on hover */
+}
+
+.cart-item-button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+.cart-item-button {
+  padding: 5px 10px;
+  margin: 0 5px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cart-item-button:hover {
+  background-color: #f4f4f4;
+}
+
+.cart-item span {
+  margin: 0 5px;
+}
