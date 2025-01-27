@@ -237,31 +237,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // Print functionality
-  printBtn.addEventListener('click', async () => {
-    const billData = {
-      items: cart.map(item => ({
-        name: item.name,
-        quantity: item.qty,
-        price: item.price
-      })),
-      total: cart.reduce((sum, item) => sum + item.qty * item.price, 0),
-      tax: 0, // Add your tax calculation logic here
-      grandTotal: 0 // Add your grand total calculation logic here
-    };
-    billData.grandTotal = billData.total + billData.tax;
+printBtn.addEventListener('click', async () => {
 
-    try {
-      // Send print command to main process
-      const result = await ipcRenderer.invoke('print', billData);
-      console.log(result); // Log the result of the print job
-      alert('Bill sent to printer!');
 
-      // Optionally clear the cart after printing
-      cart = [];
-      updateCart();
-    } catch (error) {
-      console.error('Print error:', error);
-      alert('Error printing bill: ' + error.message);
-    }
-  });
+  const billData = {
+    items: cart.map((item) => ({
+      name: item.name,
+      quantity: item.qty,
+      price: item.price,
+    })),
+    total: cart.reduce((sum, item) => sum + item.qty * item.price, 0),
+    tax: 0, // Add your tax calculation logic here
+    grandTotal: 0, // Add your grand total calculation logic here
+  };
+  billData.grandTotal = billData.total + billData.tax;
+
+  try {
+    // Use the secure exposed API
+    console.log(billData);
+    const result = await window.electronAPI.sendPrintCommand(billData);
+    console.log(result); // Log the result of the print job
+    alert('Bill sent to printer!');
+
+    // Optionally clear the cart after printing
+    cart = [];
+    updateCart();
+  } catch (error) {
+    console.error('Print error:', error);
+    alert('Error printing bill: ' + error.message);
+  }
+});
 });
